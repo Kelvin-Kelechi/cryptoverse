@@ -33,9 +33,11 @@ const Carousel = () => {
       items: 4,
     },
   };
+
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
+
   const items = trending.map((coin) => {
     const profit = coin?.price_change_percentage_24h >= 0;
 
