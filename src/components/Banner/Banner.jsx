@@ -12,7 +12,7 @@ const Banner = () => {
           <Typography variant="h2" className={classes.title}>
             Crypto Hunter
           </Typography>
-          <Typography variant="subtitle2" className={classes.title}>
+          <Typography variant="subtitle2" className={classes.title2}>
             {" "}
             Get all the Info regarding your favorite Crypto Currency
           </Typography>

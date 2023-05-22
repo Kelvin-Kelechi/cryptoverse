@@ -10,10 +10,16 @@ import { makeStyles } from "@mui/styles";
           backgroundColor: "#131111",
         },
         fontFamily: "Montserrat",
+      },pagination1:{
+        display: "flex",
+        padding: 20,
+        justifyContent: "center",
+        width: "100%",
       },
       pagination: {
-        "& .MuiPaginationItem-root": {
-          color: "gold",
+        "& .Mui-selected": {
+          color: "#56F21B",
         },
       },
+     
  }))

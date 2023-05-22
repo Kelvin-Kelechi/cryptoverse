@@ -6,7 +6,7 @@ export const useNavbarStyles = makeStyles(() => ({
     color: "#56F21B",
     cursor: "pointer",
     fontWeight: "bold",
-    fontFamily:''
+    fontFamily: ' Helvetica Neue',
   },
   select: {
     width: 100,

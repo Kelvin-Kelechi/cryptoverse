@@ -5,15 +5,13 @@ import { TrendingCoins } from "../../config/api";
 import { CryptoState } from "../../../CryptoContext";
 import AliceCarousel from "react-alice-carousel";
 import { Link } from "react-router-dom";
+import { numberWithCommas } from "../../CoinTable/CoinTable";
 
 const Carousel = () => {
   const classes = useCarouselStyles();
   const [trending, setTrending] = useState([]);
   const { currency, symbol } = CryptoState();
-  //   const headers = {
-  //     "Content-Type": "application/json",
-  //     Authorization: "Bearer/token",
-  //   };
+ 
   const fetchTrendingCoins = async () => {
     const { data } = await axios.get(TrendingCoins(currency));
 
@@ -34,10 +32,6 @@ const Carousel = () => {
     },
   };
 
-  const numberWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
-
   const items = trending.map((coin) => {
     const profit = coin?.price_change_percentage_24h >= 0;
 
@@ -56,7 +50,7 @@ const Carousel = () => {
             style={{ color: profit > 0 ? "#56F21B" : "red", fontWeight: 500 }}
           >
             {profit && "+"}
-            {coin?.price_change_percentage_24h.toFixed(2)}%
+            {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
         </span>
         <span className={classes.price}>
