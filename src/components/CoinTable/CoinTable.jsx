@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 import { useCoinTableStyles } from "./styles";
 
 export const numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
 const CoinTable = () => {

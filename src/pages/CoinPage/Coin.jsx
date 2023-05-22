@@ -5,7 +5,7 @@ import axios from "axios";
 import { SingleCoin } from "../../components/config/api";
 import CoinInfo from "../../components/CoinInfo/CoinInfo";
 import { useCoinStyles } from "./styles";
-import { Typography } from "@mui/material";
+import { LinearProgress, Typography } from "@mui/material";
 import ReactHtmlParser from "react-html-parser";
 import { numberWithCommas } from "../../components/CoinTable/CoinTable";
 
@@ -23,7 +23,7 @@ const Coin = () => {
     fetchSingleCoin();
   }, []);
 
-   
+  if (!coin) return <LinearProgress style={{ backgroundColor: "#56F21B" }} />;
 
   return (
     <div className={classes.container}>
