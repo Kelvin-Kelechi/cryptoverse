@@ -26,22 +26,14 @@ export const numberWithCommas = (x) => {
 };
 
 const CoinTable = () => {
-  const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const classes = useCoinTableStyles();
   const navigate = useNavigate();
 
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, coins, loading, fetchCoinList } = CryptoState();
 
-  const fetchCoinList = async () => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-    setCoins(data);
-    console.log(data);
-    setLoading(false);
-  };
+  
 
   useEffect(() => {
     fetchCoinList();
