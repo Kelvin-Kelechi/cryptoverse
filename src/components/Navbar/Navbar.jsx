@@ -12,7 +12,7 @@ import {
 import { useNavbarStyles } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../../CryptoContext";
-import Modal from "../Modal/Modal";
+import Modal from "../Modal/BasicModal";
 
 const Navbar = () => {
   const classes = useNavbarStyles();

@@ -33,8 +33,6 @@ const CoinTable = () => {
 
   const { currency, symbol, coins, loading, fetchCoinList } = CryptoState();
 
-  
-
   useEffect(() => {
     fetchCoinList();
   }, [currency]);
