@@ -13,6 +13,7 @@ import { useNavbarStyles } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../../CryptoContext";
 import Modal from "../Modal/BasicModal";
+import Sidebar from "../Modal/Sidebar/Sidebar";
 
 const Navbar = () => {
   const classes = useNavbarStyles();
@@ -49,7 +50,7 @@ const Navbar = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"NGN"}>NGN</MenuItem>
             </Select>
-          { user ? 'Logout': <Modal/>}
+          { user ?  <Sidebar/> : <Modal/>}
           </Toolbar>
         </Container>
       </AppBar>
