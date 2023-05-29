@@ -26,7 +26,7 @@ const Navbar = () => {
       mode: "dark",
     },
   });
-  const { currency, setCurrency } = CryptoState();
+  const { currency, setCurrency , user} = CryptoState();
   console.log(currency)
   return (
     <ThemeProvider theme={darkTheme}>
@@ -49,7 +49,7 @@ const Navbar = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"NGN"}>NGN</MenuItem>
             </Select>
-            <Modal/>
+          { user ? 'Logout': <Modal/>}
           </Toolbar>
         </Container>
       </AppBar>
