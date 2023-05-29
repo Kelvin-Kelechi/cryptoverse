@@ -13,7 +13,7 @@ const Alert = () => {
     setAlert({ open: false });
   };
   return (
-    <Snackbar open={alert.open} autoHideDuration={3500} onClose={handleClose}>
+    <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleClose}>
       <MuiAlert onClose={handleClose} elevation={6} severity={alert.type} variant="filled">
         {alert.message}
       </MuiAlert>
