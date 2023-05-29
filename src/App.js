@@ -4,6 +4,7 @@ import { Navbar } from "./components";
 import { useStyles } from "./styles";
 import { ThemeProvider } from "@mui/styles";
 import { createTheme } from "@mui/material";
+import Alert from "./components/Alert/Alert";
 const theme = createTheme();
 function App() {
   const classes = useStyles();
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/coins/:id" element={<Coin />} />
         </Routes>
+        <Alert />
       </div>
     </ThemeProvider>
   );
