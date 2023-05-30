@@ -40,7 +40,7 @@ const CoinInfo = ({ coin }) => {
       <div className={classes.container}>
         {!historical ? (
           <CircularProgress
-            style={{ color: "#56F21B",}}
+            style={{ color: "#56F21B" }}
             size={250}
             thickness={1}
           />
@@ -82,7 +82,6 @@ const CoinInfo = ({ coin }) => {
               }}
             >
               {chartDays?.map((day) => (
-                
                 <button
                   className={
                     day.value === days ? classes.active : classes.links

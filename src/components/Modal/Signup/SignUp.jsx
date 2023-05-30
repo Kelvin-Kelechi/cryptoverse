@@ -8,7 +8,7 @@ const SignUp = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [comfirmPassword, setComfirmPassword] = useState("");
-  const { setAlert } = CryptoState();
+  const { setAlert,  } = CryptoState();
   const handleSignUp = async () => {
     if (password !== comfirmPassword) {
       setAlert({

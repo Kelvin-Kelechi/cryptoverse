@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles"
 
 export const useCoinStyles = makeStyles((theme ) => ({
     container: {
-      display: "flex",
+      display: "flex",  
       [theme.breakpoints.down("md")]: {
         flexDirection: "column",
         alignItems: "center",
@@ -10,6 +10,7 @@ export const useCoinStyles = makeStyles((theme ) => ({
     },
     sidebar: {
       width: "30%",
+      // padding:'0px 15px',
       [theme.breakpoints.down("md")]: {
         width: "100%",
       },
