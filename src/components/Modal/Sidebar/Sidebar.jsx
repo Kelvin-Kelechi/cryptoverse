@@ -5,12 +5,14 @@ import Button from "@mui/material/Button";
 import { Avatar } from "@mui/material";
 import { CryptoState } from "../../../CryptoContext";
 import { useSidebarStyles } from "./styles";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../firebase";
 
 const Sidebar = () => {
   const [state, setState] = React.useState({
     right: false,
   });
-  const { user } = CryptoState();
+  const { user, setAlert } = CryptoState();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -24,7 +26,15 @@ const Sidebar = () => {
   };
   const classes = useSidebarStyles();
 
-  const logout = () => {};
+  const logout = () => {
+    signOut(auth)
+    setAlert({
+      open: true,
+      message: "Logged Out Successfully",
+      type: "success",
+    });
+    toggleDrawer()
+  };
   return (
     <div>
       {["right"].map((anchor) => (
