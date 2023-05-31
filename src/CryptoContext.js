@@ -26,6 +26,7 @@ const CryptoContext = ({ children }) => {
         setUser(null);
       }
     });
+    console.log(user)
   });
 
   const fetchCoinList = async () => {

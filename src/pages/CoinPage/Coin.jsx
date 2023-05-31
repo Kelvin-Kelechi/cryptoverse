@@ -5,7 +5,7 @@ import axios from "axios";
 import { SingleCoin } from "../../components/config/api";
 import CoinInfo from "../../components/CoinInfo/CoinInfo";
 import { useCoinStyles } from "./styles";
-import { LinearProgress, Typography } from "@mui/material";
+import { Button, LinearProgress, Typography } from "@mui/material";
 import ReactHtmlParser from "react-html-parser";
 import { numberWithCommas } from "../../components/CoinTable/CoinTable";
 
@@ -13,7 +13,7 @@ const Coin = () => {
   const classes = useCoinStyles();
   const { id } = useParams();
   const [coin, setCoin] = useState();
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, user } = CryptoState();
   const fetchSingleCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
     setCoin(data);
@@ -37,11 +37,14 @@ const Coin = () => {
         <Typography variant="h3" className={classes.heading}>
           {coin?.name}
         </Typography>
-        <Typography variant="subtitle1" className={classes.description}>
+        <Typography
+          variant="subtitle1"
+          className={classes.description}
+        >
           {coin?.description.en.split(". ")[0]}.
         </Typography>
         <div className={classes.marketData}>
-        <span style={{ display: "flex" }}>
+          <span style={{ display: "flex" }}>
             <Typography variant="h5" className={classes.heading}>
               Rank:
             </Typography>
@@ -93,6 +96,18 @@ const Coin = () => {
               M
             </Typography>
           </span>
+          {user && (
+            <Button
+              variant="outlined"
+              style={{
+                width: "100%",
+                height: "40px",
+                backgroundColor: "#56F21B",
+              }}
+            >
+              Add To Watchlist
+            </Button>
+          )}
         </div>
       </div>
       <CoinInfo coin={coin} />
