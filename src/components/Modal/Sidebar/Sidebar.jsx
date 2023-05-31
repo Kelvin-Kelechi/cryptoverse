@@ -72,7 +72,7 @@ const Sidebar = () => {
                 />
                 <span className={classes.username}>
                   {" "}
-                  {user.photoURL || user.email}{" "}
+                  {user.email}{" "}
                 </span>
                 <div className={classes.watchlist}>
                   <span
