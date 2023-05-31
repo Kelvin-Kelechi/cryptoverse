@@ -11,6 +11,7 @@ const CryptoContext = ({ children }) => {
   const [symbol, setSymbol] = useState("₦");
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [watchlist, setWatchlist] = useState([]);
   const [user, setUser] = useState(null);
   const [alert, setAlert] = useState({
     open: false,
@@ -26,7 +27,7 @@ const CryptoContext = ({ children }) => {
         setUser(null);
       }
     });
-    console.log(user)
+    console.log(user);
   });
 
   const fetchCoinList = async () => {
@@ -56,7 +57,8 @@ const CryptoContext = ({ children }) => {
         fetchCoinList,
         setAlert,
         alert,
-        user
+        user,
+        watchlist
       }}
     >
       {children}
