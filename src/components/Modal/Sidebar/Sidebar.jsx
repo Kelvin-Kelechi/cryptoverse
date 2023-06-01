@@ -6,13 +6,16 @@ import { Avatar } from "@mui/material";
 import { CryptoState } from "../../../CryptoContext";
 import { useSidebarStyles } from "./styles";
 import { signOut } from "firebase/auth";
-import { auth } from "../../../firebase";
+import { auth, db } from "../../../firebase";
+import { numberWithCommas } from "../../CoinTable/CoinTable";
+import { MdDelete } from "react-icons/md";
+import { doc, setDoc } from "firebase/firestore";
 
 const Sidebar = () => {
   const [state, setState] = React.useState({
     right: false,
   });
-  const { user, setAlert } = CryptoState();
+  const { user, setAlert, coins, watchlist, symbol } = CryptoState();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -27,14 +30,41 @@ const Sidebar = () => {
   const classes = useSidebarStyles();
 
   const logout = () => {
-    signOut(auth)
+    signOut(auth);
     setAlert({
       open: true,
       message: "Logged Out Successfully",
       type: "success",
     });
-    toggleDrawer()
+    toggleDrawer();
   };
+  const removeFromWatchlist = async (coin) => {
+    const coinRef = doc(db, "watchlist", user.uid);
+    try {
+      await setDoc(
+        coinRef,
+        {
+          coins: watchlist.filter((watch) => watch !== coin?.id),
+        },
+        {
+          merge: "true",
+        }
+      );
+      setAlert({
+        open: true,
+        message: `${coin.name} Removed from the Watchlist !`,
+        type: "success",
+      });
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+      return;
+    }
+  };
+
   return (
     <div>
       {["right"].map((anchor) => (
@@ -70,10 +100,7 @@ const Sidebar = () => {
                   src={user.photoURL}
                   alt={user.displayName || user.email}
                 />
-                <span className={classes.username}>
-                  {" "}
-                  {user.email}{" "}
-                </span>
+                <span className={classes.username}> {user.email} </span>
                 <div className={classes.watchlist}>
                   <span
                     style={{
@@ -83,6 +110,24 @@ const Sidebar = () => {
                   >
                     watchlist
                   </span>
+                  {coins.map((coin) => {
+                    if (watchlist.includes(coin.id)) {
+                      return (
+                        <div className={classes.coin}>
+                          <span>{coin.name}</span>
+                          <span style={{ display: "flex", gap: 8 }}>
+                            {symbol}
+                            {numberWithCommas(coin.current_price.toFixed(2))}
+                            <MdDelete
+                              fontSize={16}
+                              style={{ cursor: "pointer" , color:'#ff0000'}}
+                              onClick={() => removeFromWatchlist(coin)}
+                            />
+                          </span>
+                        </div>
+                      );
+                    }
+                  })}
                 </div>
               </div>
               <Button

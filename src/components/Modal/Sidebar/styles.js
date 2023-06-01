@@ -46,7 +46,7 @@ export const useSidebarStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#56F21B",
     boxShadow: "0 0 3px black",
   },
 }));
