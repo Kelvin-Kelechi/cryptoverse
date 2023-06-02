@@ -9,8 +9,9 @@ const Banner = () => {
     <div className={classes.banner}>
       <Container className={classes.bannerContent}>
         <div className={classes.tagline}>
-          <Typography variant="h2" className={classes.title}>
-            Crypto Hunter
+          <Typography variant="h2" >
+            <div className={classes.title}>Crypto Hunter</div>
+            
           </Typography>
           <Typography variant="subtitle2" className={classes.title2}>
             {" "}

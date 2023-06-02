@@ -1,6 +1,6 @@
 const { makeStyles } = require("@mui/styles");
 
-export const useBannerStyles = makeStyles(() => ({
+export const useBannerStyles = makeStyles((theme) => ({
   banner: {
     backgroundImage: "url(./banner2.jpg)",
   },
@@ -14,6 +14,10 @@ export const useBannerStyles = makeStyles(() => ({
   title: {
     fontWeight: "bold",
     marginBottom: 15,
+    [theme.breakpoints.down("sm")]: {
+        fontSize:'35px',
+    },
+    
   },
   title2: {
     color: "darkgray",

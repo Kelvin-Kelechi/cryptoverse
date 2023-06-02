@@ -1,10 +1,11 @@
 import { makeStyles } from "@mui/styles";
 
-export const useCarouselStyles = makeStyles(() => ({
+export const useCarouselStyles = makeStyles((theme) => ({
   carousel: {
     height: "50%",
     alignItems: "center",
     display: "flex",
+     
   },
   carouselItem: {
     display: "flex",
