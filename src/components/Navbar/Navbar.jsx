@@ -27,19 +27,15 @@ const Navbar = () => {
       mode: "dark",
     },
   });
-  const { currency, setCurrency , user} = CryptoState();
-  console.log(currency)
+  const { currency, setCurrency, user } = CryptoState();
+  console.log(currency);
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar color="transparent" position="static">
         <Container>
           <Toolbar>
-            <Typography
-              onClick={() => navigate("/")}
-              variant="h6"
-              className={classes.title}
-            >
-              Crypto Hunter
+            <Typography onClick={() => navigate("/")} variant="h6">
+              <div className={classes.title}>Crypto Hunter</div>
             </Typography>
             <Select
               value={currency}
@@ -50,7 +46,7 @@ const Navbar = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"NGN"}>NGN</MenuItem>
             </Select>
-          { user ?  <Sidebar/> : <Modal/>}
+            {user ? <Sidebar /> : <Modal />}
           </Toolbar>
         </Container>
       </AppBar>

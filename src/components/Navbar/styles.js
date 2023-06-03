@@ -6,13 +6,16 @@ export const useNavbarStyles = makeStyles((theme) => ({
     color: "#56F21B",
     cursor: "pointer",
     fontWeight: "bold",
-    fontFamily: ' Helvetica Neue',
-     
+    fontFamily: " Helvetica Neue",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "18px",
+      marginRight: "10px",
+    },
   },
   select: {
     width: 100,
     height: 40,
-    marginRight:15,
+    marginRight: 15,
+     
   },
 }));
- 

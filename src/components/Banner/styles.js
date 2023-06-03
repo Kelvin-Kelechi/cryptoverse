@@ -15,9 +15,8 @@ export const useBannerStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     marginBottom: 15,
     [theme.breakpoints.down("sm")]: {
-        fontSize:'35px',
+      fontSize: "35px",
     },
-    
   },
   title2: {
     color: "darkgray",
