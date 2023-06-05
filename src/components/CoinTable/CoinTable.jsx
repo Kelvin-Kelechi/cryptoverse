@@ -80,6 +80,7 @@ const CoinTable = () => {
                       }}
                       key={head}
                       align={head === "Coin" ? "" : "right"}
+                      sx={{display: head === "Market Cap" ? "none" : "flex"}}
                     >
                       {head}
                     </TableCell>
