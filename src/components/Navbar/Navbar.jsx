@@ -34,8 +34,8 @@ const Navbar = () => {
       <AppBar color="transparent" position="static">
         <Container>
           <Toolbar>
-            <Typography onClick={() => navigate("/")} variant="h6">
-              <div className={classes.title}>Crypto Hunter</div>
+            <Typography className={classes.title} onClick={() => navigate("/")} variant="h6">
+              <div >Crypto Hunter</div>
             </Typography>
             <Select
               value={currency}

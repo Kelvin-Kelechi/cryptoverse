@@ -55,8 +55,10 @@ const CoinTable = () => {
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
         <Typography variant="h4" style={{ margin: 18 }}>
-          <div className={classes.title}>  Cryptocurrency Prices by Market Cap</div>
-        
+          <div className={classes.title}>
+            {" "}
+            Cryptocurrency Prices by Market Cap
+          </div>
         </Typography>
         <TextField
           label="Search for a Crypto currency"
@@ -80,7 +82,7 @@ const CoinTable = () => {
                       }}
                       key={head}
                       align={head === "Coin" ? "" : "right"}
-                      sx={{display: head === "Market Cap" ? "none" : "flex"}}
+                      // sx={{display: head === "Market Cap" ? "none" : "block"}}
                     >
                       {head}
                     </TableCell>
