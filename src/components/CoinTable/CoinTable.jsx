@@ -51,6 +51,7 @@ const CoinTable = () => {
         coin.symbol.toLowerCase().includes(search)
     );
   };
+  const CoinHead = ["Coin", "Price", "24h Change", "Market Cap"]
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
@@ -73,7 +74,7 @@ const CoinTable = () => {
             <Table aria-label="simple table">
               <TableHead style={{ backgroundColor: "#56F21B" }}>
                 <TableRow>
-                  {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
+                  {CoinHead.map((head) => (
                     <TableCell
                       style={{
                         color: "black",
@@ -82,7 +83,7 @@ const CoinTable = () => {
                       }}
                       key={head}
                       align={head === "Coin" ? "" : "right"}
-                      // sx={{display: head === "Market Cap" ? "none" : "block"}}
+                      //  sx={{display: head === "Market Cap" ? "none" : "block"}}
                     >
                       {head}
                     </TableCell>
