@@ -17,18 +17,28 @@ import {
   TextField,
   Typography,
   createTheme,
+ 
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useCoinTableStyles } from "./styles";
+import { makeStyles } from "@mui/styles";
 
 export const numberWithCommas = (x) => {
   return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
-
+const CoinHead = ["Coin", "Price", "24h Change", "Market Cap"]
+const CoinStyle = makeStyles((theme)=>({
+  table:{
+    [theme.breakpoints.down("sm")]: {
+      display: CoinHead === "Market Cap" ? "none" : "block"
+    },
+  }
+}))
 const CoinTable = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const classes = useCoinTableStyles();
+  // const classes = useCoinTableStyles();
+  const classes = CoinStyle()
   const navigate = useNavigate();
 
   const { currency, symbol, coins, loading, fetchCoinList } = CryptoState();
@@ -51,7 +61,8 @@ const CoinTable = () => {
         coin.symbol.toLowerCase().includes(search)
     );
   };
-  const CoinHead = ["Coin", "Price", "24h Change", "Market Cap"]
+  
+  
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
@@ -83,7 +94,7 @@ const CoinTable = () => {
                       }}
                       key={head}
                       align={head === "Coin" ? "" : "right"}
-                      //  sx={{display: head === "Market Cap" ? "none" : "block"}}
+                        className={classes.table}
                     >
                       {head}
                     </TableCell>
