@@ -58,7 +58,7 @@ const SignUp = ({handleClose}) => {
         style={{ backgroundColor: "#56F21B" }}
         onClick={handleLogin}
       >
-        Sign Up
+        Login
       </Button>
     </Box>
   );
