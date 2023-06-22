@@ -21,23 +21,25 @@ import {
 import { useNavigate } from "react-router-dom";
 
 import { makeStyles } from "@mui/styles";
+import { useCoinTableStyles } from "./styles";
 
 export const numberWithCommas = (x) => {
   return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
-const CoinHead = ["Coin", "Price", "24h Change", "Market Cap"];
-const CoinStyle = makeStyles((theme) => ({
-  table: {
-    [theme.breakpoints.down("sm")]: {
-      display: CoinHead === "Market Cap" ? "none" : "block",
-    },
-  },
-}));
+// const CoinHead = ["Coin", "Price", "24h Change", "Market Cap"];
+// const CoinStyle = makeStyles((theme) => ({
+//   table: {
+//     [theme.breakpoints.down("sm")]: {
+//       display: CoinHead === "Market Cap" ? "none" : "none",
+//     },
+//   },
+// }));
 const CoinTable = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  // const classes = useCoinTableStyles();
-  const classes = CoinStyle();
+  const CoinHead = ["Coin", "Price", "24h Change", "Market Cap"];
+  const classes = useCoinTableStyles();
+  // const classes = CoinStyle();
   const navigate = useNavigate();
 
   const { currency, symbol, coins, loading, fetchCoinList } = CryptoState();
